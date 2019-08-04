@@ -15,19 +15,21 @@ api = tweepy.API(auth)
 #status_list = api.home_timeline()
 
 
-c96_list=[[]]
+#c96_list=[[]]
+def get():
+    c96_list=[]
 
+    f = open("../myname.txt", "r")
+    myname = f.read()
+    f.close()
 
-f = open("../myname.txt", "r")
-myname = f.read()
-f.close()
+    screen_name=myname #リスト作成者の@~~の~~
+    listname="c96" #リストの名前
+    for member in tweepy.Cursor(api.list_members,slug=listname,owner_screen_name=screen_name).items():
+        #c96_list.append([member.screen_name])
+        c96_list.append(member.screen_name)
+    #del c96_list[0]
+    #pprint(status_list[0].text)
+    #pprint(status_list)
 
-screen_name=myname #リスト作成者の@~~の~~
-listname="c96" #リストの名前
-for member in tweepy.Cursor(api.list_members,slug=listname,owner_screen_name=screen_name).items():
-    c96_list.append([member.screen_name])
-del c96_list[0]
-#pprint(status_list[0].text)
-#pprint(status_list)
-
-return(c96_list)
+    return(c96_list)
