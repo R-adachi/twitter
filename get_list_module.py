@@ -16,6 +16,7 @@ api = tweepy.API(auth)
 
 c96_list=[[]]
 
+
 f = open("../myname.txt", "r")
 myname = f.read()
 f.close()
