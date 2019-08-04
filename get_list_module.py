@@ -14,6 +14,7 @@ api = tweepy.API(auth)
 
 #status_list = api.home_timeline()
 
+
 c96_list=[[]]
 
 
