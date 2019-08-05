@@ -17,12 +17,12 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-def get(n):
-    name=copy.copy(n)
+def get(id_name,name):
+    #id=copy.copy(n)
 
     start=datetime(2019,7,25,0,0)
 
-    getlist = api.user_timeline(screen_name=name,count=100,include_rts=False,tweet_mode='extended')
+    getlist = api.user_timeline(screen_name=id_name,count=100,include_rts=False,tweet_mode='extended')
 
     osinaflg=False
 
