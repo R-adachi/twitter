@@ -10,7 +10,7 @@ llist=getlist.get()
 kekka=[[]]
 
 cnt=0
-
+"""
 for i in clist:
     check=(i in llist)
     kekka.append([clist_name[cnt],i,check])
@@ -23,3 +23,4 @@ del kekka[0]
 with open('../c96_kekka.csv', 'w' ,encoding="utf_8_sig") as f:
     writer = csv.writer(f, lineterminator='\n')
     writer.writerows(kekka)
+"""
