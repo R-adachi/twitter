@@ -8,7 +8,7 @@ clist=getcsv.get()
 clist_name=getcsv.getname()
 llist=getlist.get()
 
-kekka=[['名前','アカウント','整合性チェック','お品書き']]
+kekka=[[]]
 
 cnt=0
 
@@ -17,7 +17,7 @@ for i in clist:
     kekka.append([clist_name[cnt],i,check])
     cnt+=1
 
-#del kekka[0]
+del kekka[0]
 #pprint(status_list[0].text)
 #pprint(status_list)
 
@@ -25,6 +25,7 @@ for i in kekka:
     if(i[2]):
         i.append(getpic.get(i[1],i[0]))
 
+#kekka[0]=['名前','アカウント','整合性チェック','お品書き']
 
 with open('../c96_kekka.csv', 'w' ,encoding="utf_8_sig") as f:
     writer = csv.writer(f, lineterminator='\n')

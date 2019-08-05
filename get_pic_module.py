@@ -22,7 +22,7 @@ def get(id_name,name):
 
     start=datetime(2019,7,25,0,0)
 
-    getlist = api.user_timeline(screen_name=id_name,count=100,include_rts=False,tweet_mode='extended')
+    getlist = api.user_timeline(screen_name=id_name,count=200,include_rts=False,tweet_mode='extended')
 
     osinaflg=False
 
