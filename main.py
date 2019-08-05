@@ -21,5 +21,5 @@ del kekka[0]
 #pprint(status_list)
 
 with open('../c96_kekka.csv', 'w' ,encoding="utf_8_sig") as f:
-    writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
-    writer.writerows(kekka)     # list（1次元配列）の場合
+    writer = csv.writer(f, lineterminator='\n')
+    writer.writerows(kekka)
