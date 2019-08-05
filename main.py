@@ -3,6 +3,7 @@ import get_csv_module as getcsv
 import get_list_module as getlist
 import csv
 import get_pic_module as getpic
+import time
 
 clist=getcsv.get()
 clist_name=getcsv.getname()
@@ -21,10 +22,17 @@ del kekka[0]
 #pprint(status_list[0].text)
 #pprint(status_list)
 
+cnt=0
+start=time.time()
 for i in kekka:
     if(i[2]):
         i.append(getpic.get(i[1],i[0]))
-
+    cnt+=1
+    if(cnt>30):
+        stop=time.time()
+        time.sleep(900-(stop-start))
+        start=time.time()
+        cnt=0
 #kekka[0]=['名前','アカウント','整合性チェック','お品書き']
 
 with open('../c96_kekka.csv', 'w' ,encoding="utf_8_sig") as f:
