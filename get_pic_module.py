@@ -2,6 +2,8 @@ import tweepy
 import key_module as getkey
 from pprint import pprint
 import csv
+from datetime import datetime
+import urllib.request
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
@@ -12,16 +14,18 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-#status_list = api.home_timeline()
+name='GirlsFrontline'
 
+start=datetime(2019,7,25,0,0)
 
-#c96_list=[[]]
-def get(name):
-    status_list = api.home_timeline(count=1000,include_rts=False)
+getlist = api.user_timeline(screen_name=name,count=200,include_rts=False,tweet_mode='extended')
 
-    tl=[]
-
-    pprint(status_list[0])
-
-    for i in status_list:
-        tl.append([i.text])
+for twt in getlist:
+    if(twt.created_at>start):
+        try:
+            for i in twt.extended_entities['media']:
+                pprint(i['media_url'])
+            #pprint(twt.extended_entities['media'])
+            print(twt.full_text)
+        except:
+            pass

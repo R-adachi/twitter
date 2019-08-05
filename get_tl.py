@@ -12,7 +12,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-status_list = api.home_timeline(count=1000,include_rts=False)
+status_list = api.home_timeline(count=200,include_rts=False)
 
 tl=[]
 
