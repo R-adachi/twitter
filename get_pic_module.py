@@ -28,7 +28,7 @@ def get(id_name,name):
 
     osina=['お品','御品','おしな','お待ち']
 
-    sample=['サンプル','新刊','メロン','とら','通販']
+    sample=['表紙','サンプル','新刊','メロン','とら','通販']
 
     nowid=0
 
@@ -99,6 +99,18 @@ def get(id_name,name):
                                     local_file.write(data)
                             #pprint(i['media_url'])
                             osinaflg=True
+                        elif(any((j in twt.full_text) for j in sample)):
+                        #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
+                            pic_dir=('../pic/'+name+'/サンプル/')
+                            if not os.path.exists(pic_dir):
+                                os.makedirs(pic_dir)
+                            pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
+                            with urllib.request.urlopen(i['media_url']) as w:
+                                data = w.read()
+                                with open(pic_path, mode='wb') as local_file:
+                                    local_file.write(data)
+                            #pprint(i['media_url'])
+                            sampleflg=True
                         else:
                             pic_dir=('../pic/'+name)
                             if not os.path.exists(pic_dir):
