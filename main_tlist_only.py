@@ -13,13 +13,12 @@ kekka=[[]]
 for i in llist:
     kekka.append(i)
 
-#del kekka[0]
-#pprint(status_list[0].text)
-#pprint(status_list)
+del kekka[0]
 
 cnt=0
 start=time.time()
 for i in kekka:
+    #print(i[0].encode('utf_8'))
     i.append(getpic.get(i[1],i[0]))
     cnt+=1
     if(cnt>30):
@@ -27,9 +26,10 @@ for i in kekka:
         time.sleep(900-(stop-start))
         start=time.time()
         cnt=0
-#kekka[0]=['名前','アカウント','整合性チェック','お品書き']
+#kekka[0]=['名前','アカウント','お品書き']
 
 f = open("../myname.txt", "r")
+
 myname = f.read()
 f.close()
 

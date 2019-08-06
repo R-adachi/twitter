@@ -23,6 +23,7 @@ def get():
     listname="c96" #リストの名前
     for member in tweepy.Cursor(api.list_members,slug=listname,owner_screen_name=screen_name).items():
         c96_list.append([member.name,member.screen_name])
+        #print(member.name)
 
     del c96_list[0]
 

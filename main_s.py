@@ -28,7 +28,7 @@ for i in kekka:
     if(i[2]):
         i.append(getpic.get(i[1],i[0]))
     cnt+=1
-    if(cnt>30):
+    if(cnt>300):
         stop=time.time()
         time.sleep(900-(stop-start))
         start=time.time()
