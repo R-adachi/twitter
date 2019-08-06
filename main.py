@@ -13,6 +13,7 @@ kekka=[[]]
 
 cnt=0
 
+
 for i in clist:
     check=(i in llist)
     kekka.append([clist_name[cnt],i,check])
