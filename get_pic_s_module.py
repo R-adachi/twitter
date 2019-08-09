@@ -17,7 +17,7 @@ auth.set_access_token(access_token, access_token_secret)
 
 api = tweepy.API(auth)
 
-def get(id_name,name):
+def get(id_name,name,day,p):
     #id=copy.copy(n)
 
     start=datetime(2019,7,25,0,0)
@@ -42,7 +42,7 @@ def get(id_name,name):
                     #if(osina in twt.full_text):
                     if(any((j in twt.full_text) for j in osina)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+name+'/お品書き/')
+                        pic_dir=('../pic/'+day+'/'+name+p+'/お品書き/')
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -54,7 +54,7 @@ def get(id_name,name):
                         osinaflg=True
                     elif(any((j in twt.full_text) for j in sample)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+name+'/サンプル/')
+                        pic_dir=('../pic/'+day+'/'+name+p+'/サンプル/')
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -65,7 +65,7 @@ def get(id_name,name):
                         #pprint(i['media_url'])
                         sampleflg=True
                     else:
-                        pic_dir=('../pic/'+name)
+                        pic_dir=('../pic/'+day+'/'+name+p)
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))

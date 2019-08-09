@@ -30,3 +30,36 @@ def getname():
     #pprint(clist)
 
     return(clist)
+
+def getday():
+    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    clist=[[]]
+    dlist=[]
+
+    for row in f:
+        if(row[3]!=""):
+            clist.append(str(row[3]).split('-'))
+    del clist[0]
+    #pprint(clist)
+    for i in clist:
+        dlist.append(i[0])
+
+    return(dlist)
+
+def getp():
+    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    plist=[]
+
+    for row in f:
+        if(row[3]!=""):
+            plist.append(str(row[3]))
+
+    return(plist)
