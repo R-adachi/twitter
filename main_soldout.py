@@ -2,7 +2,7 @@ from pprint import pprint
 import get_csv_module as getcsv
 import get_list_module as getlist
 import csv
-import get_pic_s_module as getpic
+import soldout_check_module as soldcheck
 import time
 
 clist=getcsv.get()
@@ -29,16 +29,4 @@ start=time.time()
 for i in kekka:
     if(i[2]):
         if(i[3]=='3'):
-            i.append(getpic.get(i[1],i[0],i[3],i[4]))
-            cnt+=1
-    if(cnt>270):
-        stop=time.time()
-        print('please wait:'+str(900-(stop-start)))
-        time.sleep(900-(stop-start))
-        start=time.time()
-        cnt=0
-#kekka[0]=['名前','アカウント','整合性チェック','お品書き']
-
-#with open('../c96_kekka.csv', 'w' ,encoding="utf_8_sig") as f:
-#    writer = csv.writer(f, lineterminator='\n')
-#    writer.writerows(kekka)
+            soldcheck.check(i[1])
