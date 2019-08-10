@@ -20,7 +20,7 @@ api = tweepy.API(auth)
 def check(id_name):
     #id=copy.copy(n)
 
-    start=datetime(2019,8,11,0,0)
+    start=datetime(2019,8,10,0,0)
 
     soldout=['完売','なくな','無くな','おわり','売り切れ','終了','終わり']
 

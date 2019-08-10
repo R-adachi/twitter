@@ -26,7 +26,9 @@ del kekka[0]
 
 cnt=0
 start=time.time()
-for i in kekka:
-    if(i[2]):
-        if(i[3]=='3'):
-            soldcheck.check(i[1])
+while(1):
+    for i in kekka:
+        if(i[2]):
+            if(i[3]=='3'):
+                soldcheck.check(i[1])
+                time.sleep(8)
