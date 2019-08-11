@@ -29,6 +29,6 @@ start=time.time()
 while(1):
     for i in kekka:
         if(i[2]):
-            if(i[3]=='3'):
+            if(i[3]=='4'):
                 soldcheck.check(i[1])
                 time.sleep(8)

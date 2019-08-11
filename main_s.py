@@ -28,7 +28,7 @@ cnt=0
 start=time.time()
 for i in kekka:
     if(i[2]):
-        if(i[3]=='3'):
+        if(i[3]=='4'):
             i.append(getpic.get(i[1],i[0],i[3],i[4]))
             cnt+=1
     if(cnt>270):
