@@ -28,6 +28,6 @@ del c96_list[0]
 #pprint(status_list[0].text)
 #pprint(status_list)
 
-with open('./c96_list.csv', 'w' ,encoding="utf_8_sig") as f:
+with open('../c96_list.csv', 'w' ,encoding="utf_8_sig") as f:
     writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
     writer.writerows(c96_list)     # list（1次元配列）の場合
