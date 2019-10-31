@@ -89,8 +89,8 @@ def getoverA():
     plist=[]
 
     for row in f:
-        if(row[3]!="" and (row[4]=='A' or row[4]=='S')):
-            plist.append(str(row[3]))
+        if(row[2]!="" and (row[4]=='A' or row[4]=='S')):
+            plist.append(str(row[2]))
 
     return(plist)
 
@@ -103,8 +103,8 @@ def getB():
     plist=[]
 
     for row in f:
-        if(row[3]!="" and row[4]=='B'):
-            plist.append(str(row[3]))
+        if(row[2]!="" and row[4]=='B'):
+            plist.append(str(row[2]))
 
     return(plist)
 
@@ -117,7 +117,21 @@ def getUn():
     plist=[]
 
     for row in f:
-        if(row[3]!="" and row[4]==''):
-            plist.append(str(row[3]))
+        if(row[2]!="" and row[4]==''):
+            plist.append(str(row[2]))
+
+    return(plist)
+
+def getC():
+    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    plist=[]
+
+    for row in f:
+        if(row[2]!="" and row[4]=='C'):
+            plist.append(str(row[2]))
 
     return(plist)
