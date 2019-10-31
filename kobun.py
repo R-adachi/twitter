@@ -2,13 +2,23 @@ from janome.tokenizer import Tokenizer
 
 t = Tokenizer()
 
-s = '◎あなたのサークル「第2コンドル採掘場」は、金曜日　南地区“シ”ブロック－30a に配置されました。スペースいただけたので、こんな感じの深海棲艦本作ります。進捗ﾀﾞﾒﾃﾞｽ'
+s = ''
 
 print(type(t.tokenize(s)))
 # <class 'list'>
 
 print(type(t.tokenize(s)[0]))
 # <class 'janome.tokenizer.Token'>
-
+flg=0
+target=[]
+purge=['空白','サ変接続','括弧開','括弧閉']
 for token in t.tokenize(s):
-    print(token)
+    if(flg):
+        if(token.part_of_speech.split(',')[1] not in purge):
+            target.append(token.surface)
+    if(token.part_of_speech.split(',')[1]=='副詞可能'):
+        flg=1
+        target.append(token.surface)
+    if(token.part_of_speech.split(',')[2]=='組織' or token.surface=='ab'):
+        flg=0
+print(target)
