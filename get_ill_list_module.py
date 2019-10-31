@@ -24,7 +24,7 @@ def get():
     f.close()
 
     screen_name=myname #リスト作成者の@~~の~~
-    listname="絵・漫画等" #リストの名前
+    listname="illust_comic" #リストの名前
     for member in tweepy.Cursor(api.list_members,slug=listname,owner_screen_name=screen_name).items():
         #c96_list.append([member.screen_name])
         ill_list.append(member.screen_name)
