@@ -63,3 +63,17 @@ def getp():
             plist.append(str(row[3]))
 
     return(plist)
+
+def getoverA():
+    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    plist=[]
+
+    for row in f:
+        if(row[3]!="" and (row[4]=='A' or row[4]=='S')):
+            plist.append(str(row[3]))
+
+    return(plist)
