@@ -8,23 +8,6 @@ import time
 import key_module as getkey
 import tweepy
 
-alist=getcsv.getoverA()
-unlist=getcsv.getUn()
-illist=getillist.get()
-
-alist.extend(illist)
-list=list(set(alist))
-
-blist=getcsv.getB()
-clist=getcsv.getC()
-blist.extend(clist)
-
-for r in blist:
-    try:
-        list.remove(r)
-    except:
-        pass
-
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
 access_token = getkey.get_atoken()
@@ -38,11 +21,25 @@ f = open("../myname.txt", "r")
 myname = f.read()
 f.close()
 
-try:
-    api.create_list(name="c97_pre",mode="private")
-except:
-    pass
-"""
+alist=getcsv.getoverA()
+unlist=getcsv.getUn()
+illist=getillist.get()
+
+alist.extend(illist)
+list=list(set(alist))
+
+blist=getcsv.getB()
+clist=getcsv.getC()
+blist.extend(clist)
+
+for r in blist:
+    if(r in list):
+        list.remove(r)
+
+makelist_name='c97pre'
+
+if makelist_name not in api.lists_all(screen_name=myname):
+    api.create_list(name=makelist_name,mode="private")
+
 for l in list:
-    api.add_list_member("c97_pre", id=l)
-"""
+    api.add_list_member(screen_name=l, slug=makelist_name, owner_screen_name=myname)
