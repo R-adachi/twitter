@@ -16,6 +16,22 @@ def get():
 
     return(clist)
 
+def get_name_match(list):
+    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    clist=[]
+
+    for row in f:
+        if(row[0] in list):
+            clist.append([str(row[0]),str(row[1])])
+    #pprint(clist)
+
+    return(clist)
+
+
 def getname():
     csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
