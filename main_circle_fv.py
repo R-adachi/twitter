@@ -14,7 +14,7 @@ start=time.time()
 kekka=[[]]
 final=[[]]
 cnt=0
-while(cnt<10):
+while(cnt<30):
     rtlist=fv.check('subc97pre')
     rtlist=fv.check('c97pre')
     kekka.extend(rtlist)
