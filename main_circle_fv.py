@@ -15,7 +15,7 @@ kekka=[[]]
 final=[[]]
 cnt=0
 while(cnt<10):
-    rtlist=rt.check('subc97pre')
+    rtlist=fv.check('subc97pre')
     rtlist=fv.check('c97pre')
     kekka.extend(rtlist)
     #final=list(set(kekka))
