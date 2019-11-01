@@ -7,6 +7,8 @@ import urllib.error
 import urllib.request
 import os
 import copy
+import kobun_touraku_module as touraku
+import time
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
@@ -21,10 +23,13 @@ f = open("../myname.txt", "r")
 myname = f.read()
 f.close()
 
+stop=0
+
 def check(listname):
+    rtlist=[[]]
     #id=copy.copy(n)
 
-    start=datetime(2019,11,1,(15 - 9),0)
+    start=datetime(2019,11,1,(16 - 9),55)
 
     newlist = api.list_timeline(myname,slug=listname,count=200,exclude_replies=True,include_rts=False,tweet_mode='extended')
     #newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
@@ -32,11 +37,17 @@ def check(listname):
         #print(twt.created_at)
         nowid=twt.id
         if(twt.created_at>start):
-            print(twt.full_text)
-            """
             try:
-                if(any((j in twt.full_text) for j in soldout)):
+                trtw=touraku.touraku(twt.full_text)
+                if(len(trtw)>3):
+                    trtw.insert(0, twt.user.name)
+                    stop=1
+                    rtlist.append(trtw)
                     api.retweet(twt.id)
+                else:
+                    stop=0
             except:
                 pass
-            """
+            if(stop):
+                time.sleep(30)
+    return(rtlist)
