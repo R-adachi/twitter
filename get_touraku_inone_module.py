@@ -29,6 +29,7 @@ def get(id_name):
 
     newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,retweeted=False,include_rts=False,tweet_mode='extended')
     #nowpage+=1
+    stop=0
     for twt in newlist:
         nowid=twt.id
         if(twt.created_at>start):
@@ -44,9 +45,10 @@ def get(id_name):
                 pass
             if(stop):
                 time.sleep(30)
+            stop=0
 
 
-
+    stop=0
     for p in range(8):
         getlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,retweeted=False,include_rts=False,tweet_mode='extended',max_id=nowid)
         for twt in newlist:
@@ -64,5 +66,6 @@ def get(id_name):
                     pass
                 if(stop):
                     time.sleep(30)
+                stop=0
     return(tourakuflg)
 #return
