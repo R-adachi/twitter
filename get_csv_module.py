@@ -135,3 +135,19 @@ def getC():
             plist.append(str(row[2]))
 
     return(plist)
+
+def getc97pre():
+    csv_file=open("../c97pre_p1.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+
+    plist=[[]]
+
+    for row in f:
+        if(row[0]!=""):
+            text=''
+            for r in range(len(row)-1):
+                text+=str(row[r+1])
+            plist.append([row[0],text])
+    del plist[0]
+    return(plist)
