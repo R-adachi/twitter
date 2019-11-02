@@ -8,6 +8,7 @@ import urllib.request
 import os
 import copy
 import day_place_module as dp
+import time
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
