@@ -151,3 +151,15 @@ def getc97pre():
             plist.append([row[0],text])
     del plist[0]
     return(plist)
+
+def getc97c():
+    csv_file=open("../c97_check.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    plist=[[]]
+
+    for row in f:
+        if(row[0]!=""):
+            plist.append(row)
+    del plist[0]
+    return(plist)
