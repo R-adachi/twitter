@@ -11,15 +11,14 @@ cnt=0
 nlist=getcsv.getc97pre()
 kekka_list=[]
 clist=[]
-memlist=[]
 
-f = open("../myname.txt", "r")
-myname = f.read()
-f.close()
+alist=getcsv.getB()
+unlist=getcsv.getUn()
+illist=getillist.get()
 
-listname="c97pre" #リストの名前
-for member in tweepy.Cursor(api.list_members,slug=listname,owner_screen_name=myname).items():
-    memlist.append(str(member.screen_name))
+alist.extend(illist)
+alist.extend(unlist)
+csvlist=list(set(alist))
 
 for n in nlist:
     kekka=dp.seikei(n[1])
@@ -27,13 +26,13 @@ for n in nlist:
         kekka_list.append([n[0],True])
         clist.append(n[0])
 
-for m in memlist:
-    if(m not in clist):
-        print(m)
-        if(touraku.get(m)):
-            kekka_list.append([m,True])
+for c in csvlist:
+    if(c not in clist):
+        print(c)
+        if(touraku.get(c)):
+            kekka_list.append([c,True])
         else:
-            kekka_list.append([m,False])
+            kekka_list.append([c,False])
 
 
 with open('../c97_check.csv', 'w') as f:
