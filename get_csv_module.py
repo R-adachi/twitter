@@ -1,8 +1,10 @@
 import csv
 from pprint import pprint
 
+cname = 'c97'
+
 def get():
-    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -16,8 +18,36 @@ def get():
 
     return(clist)
 
+def getdb():
+    csv_file=open("../db.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    clist=[]
+
+    for row in f:
+        if(row[0]!=""):
+            clist.append(row)
+
+    return(clist)
+
+def getapp():
+    csv_file=open("../"+cname+"_append.csv","r",encoding="ms932",errors="",newline="")
+    f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
+
+    header=next(f)
+
+    clist=[]
+
+    for row in f:
+        if(row[0]!=""):
+            clist.append(row)
+
+    return(clist)
+
 def get_name_match(list):
-    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_pre.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -33,7 +63,7 @@ def get_name_match(list):
 
 
 def getname():
-    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -48,7 +78,7 @@ def getname():
     return(clist)
 
 def getday():
-    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -67,7 +97,7 @@ def getday():
     return(dlist)
 
 def getp():
-    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -81,7 +111,7 @@ def getp():
     return(plist)
 
 def getoverA():
-    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_pre.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -95,7 +125,7 @@ def getoverA():
     return(plist)
 
 def getB():
-    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_pre.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -109,7 +139,7 @@ def getB():
     return(plist)
 
 def getUn():
-    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_pre.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -123,7 +153,7 @@ def getUn():
     return(plist)
 
 def getC():
-    csv_file=open("../c97_pre.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+"_pre.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -136,8 +166,8 @@ def getC():
 
     return(plist)
 
-def getc97pre():
-    csv_file=open("../c97pre_p1.csv","r",encoding="ms932",errors="",newline="")
+def getcpre():
+    csv_file=open("../"+cname+"pre_p1.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
 
@@ -152,8 +182,8 @@ def getc97pre():
     del plist[0]
     return(plist)
 
-def getc97c():
-    csv_file=open("../c97_check.csv","r",encoding="ms932",errors="",newline="")
+def getcc():
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     plist=[[]]
@@ -164,8 +194,8 @@ def getc97c():
     del plist[0]
     return(plist)
 
-def get_c96_set():
-    csv_file=open("../c96_check.csv","r",encoding="ms932",errors="",newline="")
+def get_c_set():
+    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
