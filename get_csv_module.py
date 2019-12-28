@@ -4,7 +4,7 @@ from pprint import pprint
 cname = 'c97'
 
 def get():
-    csv_file=open("../"+cname+"_check.csv","r",encoding="ms932",errors="",newline="")
+    csv_file=open("../"+cname+".csv","r",encoding="ms932",errors="",newline="")
     f=csv.reader(csv_file,delimiter=",",doublequote=True,lineterminator="¥r¥n",quotechar='"',skipinitialspace=True)
 
     header=next(f)
@@ -13,7 +13,7 @@ def get():
 
     for row in f:
         if(row[2]!=""):
-            clist.append(str(row[2]))
+            clist.append(row)
     #pprint(clist)
 
     return(clist)
