@@ -74,10 +74,8 @@ for twt in newlist:
                     data = w.read()
                     with open(tmp_path, mode='wb') as local_file:
                         local_file.write(data)
-                print(tmp_path)
                 img=cv2.imread(tmp_path)
-                print(cnn.judge(img))
-                # if(cnn.judge(img)):
-                    # print('oshina')
+                if(cnn.judge(img)):
+                    print('oshina')
                 #pprint(i['media_url'])
                 shutil.rmtree(tmp_dir)
