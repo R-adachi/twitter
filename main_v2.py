@@ -22,7 +22,7 @@ for i in kekka:
         cnt+=1
     if(cnt>30):
         stop=time.time()
-        print('please wait:'+str(900-(stop-start)))
+        print('please wait:'+str(450-(stop-start)))
         time.sleep(900-(stop-start))
         start=time.time()
         cnt=0

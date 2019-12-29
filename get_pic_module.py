@@ -7,6 +7,11 @@ import urllib.error
 import urllib.request
 import os
 import copy
+import tempfile
+import requests
+import cv2
+import c_judge_module as cnn
+import shutil
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
