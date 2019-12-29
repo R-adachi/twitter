@@ -79,8 +79,11 @@ def get(id_name,name,day,p):
                         if(cnn.judge(img)):
                             osinaflg2=True
                             osinaflg=True
+                            print('osina')
+                        else:
+                            print('not osina')
                         shutil.rmtree(tmp_dir)
-                        
+
                         pic_dir=('../pic/'+day+'/'+name+p)
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
@@ -112,6 +115,7 @@ def get(id_name,name,day,p):
     for p in range(8):
         getlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,include_rts=False,tweet_mode='extended',max_id=nowid)
         for twt in getlist:
+            osinaflg2=False
             nowid=twt.id
             if(twt.created_at>start):
                 try:
@@ -127,7 +131,6 @@ def get(id_name,name,day,p):
                                 data = w.read()
                                 with open(pic_path, mode='wb') as local_file:
                                     local_file.write(data)
-                            #pprint(i['media_url'])
                             osinaflg=True
                         elif(any((j in twt.full_text) for j in sample)):
                         #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
@@ -142,6 +145,23 @@ def get(id_name,name,day,p):
                             #pprint(i['media_url'])
                             sampleflg=True
                         else:
+                            tmp_dir=('../tmp/')
+                            if not os.path.exists(tmp_dir):
+                                os.makedirs(tmp_dir)
+                            tmp_path=os.path.join(tmp_dir, os.path.basename(i['media_url']))
+                            with urllib.request.urlopen(i['media_url']) as w:
+                                data = w.read()
+                                with open(tmp_path, mode='wb') as local_file:
+                                    local_file.write(data)
+                            img=cv2.imread(tmp_path)
+                            if(cnn.judge(img)):
+                                osinaflg2=True
+                                osinaflg=True
+                                print('osina')
+                            else:
+                                print('not osina')
+                            shutil.rmtree(tmp_dir)
+
                             pic_dir=('../pic/'+day+'/'+name+p)
                             if not os.path.exists(pic_dir):
                                 os.makedirs(pic_dir)
@@ -154,5 +174,19 @@ def get(id_name,name,day,p):
                 except:
                     pass
                     #pprint(twt.full_text)
+                if(osinaflg2):
+                    for i in twt.extended_entities['media']:
+                        #if(osina in twt.full_text):
+                        if(any((j in twt.full_text) for j in osina)):
+                        #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
+                            pic_dir=('../pic/'+day+'/'+name+p+'/お品書き/')
+                            if not os.path.exists(pic_dir):
+                                os.makedirs(pic_dir)
+                            pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
+                            with urllib.request.urlopen(i['media_url']) as w:
+                                data = w.read()
+                                with open(pic_path, mode='wb') as local_file:
+                                    local_file.write(data)
+                    osinaflg2=False
     return(osinaflg)
 #return

@@ -146,6 +146,5 @@ def cnn(pix,fil,image):
     test_pred=sess.run(pred, feed_dict={
         images_placeholder: input_image,
         keep_prob: 1.0})
-    print(test_pred)
 
     return(int(test_pred[0]))
