@@ -20,7 +20,7 @@ api = tweepy.API(auth)
 def get(id_name,name,day,p):
     #id=copy.copy(n)
 
-    start=datetime(2019,7,25,0,0)
+    start=datetime(2019,12,15,0,0)
 
     osinaflg=False
 
@@ -50,8 +50,21 @@ def get(id_name,name,day,p):
                             data = w.read()
                             with open(pic_path, mode='wb') as local_file:
                                 local_file.write(data)
-                        #pprint(i['media_url'])
                         osinaflg=True
+                    else:
+                    #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
+                        tmp_dir=('../tmp/')
+                        if not os.path.exists(tmp_dir):
+                            os.makedirs(tmp_dir)
+                        tmp_path=os.path.join(tmp_dir, os.path.basename(i['media_url']))
+                        with urllib.request.urlopen(i['media_url']) as w:
+                            data = w.read()
+                            with open(tmp_path, mode='wb') as local_file:
+                                local_file.write(data)
+                        img=cv2.imread(tmp_path)
+                        if()
+                        #pprint(i['media_url'])
+                        shutil.rmtree(tmp_dir)
                     elif(any((j in twt.full_text) for j in sample)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
                         pic_dir=('../pic/'+day+'/'+name+p+'/サンプル/')
