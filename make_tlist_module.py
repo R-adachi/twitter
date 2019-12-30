@@ -22,7 +22,13 @@ def make(makelist_name,member):
     myname = f.read()
     f.close()
 
-    if makelist_name not in api.lists_all(screen_name=myname):
+    makeflg=1
+
+    for j in api.lists_all(screen_name=myname):
+        if(j.name==makelist_name):
+            makeflg=0
+
+    if makeflg:
         api.create_list(name=makelist_name,mode="private")
 
     for l in member:

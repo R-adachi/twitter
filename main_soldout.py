@@ -5,30 +5,14 @@ import csv
 import soldout_check_module as soldcheck
 import time
 
-clist=getcsv.get()
-clist_name=getcsv.getname()
-llist=getlist.get()
-daylist=getcsv.getday()
-plist=getcsv.getp()
+c='c97'
+DAY=4
 
-kekka=[[]]
-
-cnt=0
-
-for i in clist:
-    check=(i in llist)
-    kekka.append([clist_name[cnt],i,check,daylist[cnt],plist[cnt]])
-    cnt+=1
-
-del kekka[0]
-#pprint(status_list[0].text)
-#pprint(status_list)
+list=getlist.get(c+'d'+str(DAY))
 
 cnt=0
 start=time.time()
 while(1):
-    for i in kekka:
-        if(i[2]):
-            if(i[3]=='4'):
-                soldcheck.check(i[1])
-                time.sleep(8)
+    for i in list:
+        soldcheck.check(i)
+        time.sleep(8)

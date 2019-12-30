@@ -23,6 +23,10 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 def get(id_name,name,day,p):
+
+    dir=('../pic/'+day+'/'+name+'_'+p+'/')
+    if not os.path.exists(dir):
+        os.makedirs(dir)
     #id=copy.copy(n)
 
     start=datetime(2019,12,15,0,0)
@@ -104,16 +108,14 @@ def get(id_name,name,day,p):
             if(osinaflg2):
                 for i in twt.extended_entities['media']:
                     #if(osina in twt.full_text):
-                    if(any((j in twt.full_text) for j in osina)):
-                    #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+day+'/'+name+'_'+p+'/お品書き/')
-                        if not os.path.exists(pic_dir):
-                            os.makedirs(pic_dir)
-                        pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
-                        with urllib.request.urlopen(i['media_url']) as w:
-                            data = w.read()
-                            with open(pic_path, mode='wb') as local_file:
-                                local_file.write(data)
+                    pic_dir=('../pic/'+day+'/'+name+'_'+p+'/お品書き/')
+                    if not os.path.exists(pic_dir):
+                        os.makedirs(pic_dir)
+                    pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
+                    with urllib.request.urlopen(i['media_url']) as w:
+                        data = w.read()
+                        with open(pic_path, mode='wb') as local_file:
+                            local_file.write(data)
                 osinaflg2=False
 
 
