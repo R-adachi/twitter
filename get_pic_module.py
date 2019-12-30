@@ -50,7 +50,7 @@ def get(id_name,name,day,p):
                     #if(osina in twt.full_text):
                     if(any((j in twt.full_text) for j in osina)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+day+'/'+name+p+'/お品書き/')
+                        pic_dir=('../pic/'+day+'/'+name+'_'+p+'/お品書き/')
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -61,7 +61,7 @@ def get(id_name,name,day,p):
                         osinaflg=True
                     elif(any((j in twt.full_text) for j in sample)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+day+'/'+name+p+'/サンプル/')
+                        pic_dir=('../pic/'+day+'/'+name+'_'+p+'/サンプル/')
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -89,7 +89,7 @@ def get(id_name,name,day,p):
                             print('not osina')
                         shutil.rmtree(tmp_dir)
 
-                        pic_dir=('../pic/'+day+'/'+name+p)
+                        pic_dir=('../pic/'+day+'/'+name+'_'+p)
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -106,7 +106,7 @@ def get(id_name,name,day,p):
                     #if(osina in twt.full_text):
                     if(any((j in twt.full_text) for j in osina)):
                     #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                        pic_dir=('../pic/'+day+'/'+name+p+'/お品書き/')
+                        pic_dir=('../pic/'+day+'/'+name+'_'+p+'/お品書き/')
                         if not os.path.exists(pic_dir):
                             os.makedirs(pic_dir)
                         pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -128,7 +128,7 @@ def get(id_name,name,day,p):
                         #if(osina in twt.full_text):
                         if(any((j in twt.full_text) for j in osina)):
                         #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                            pic_dir=('../pic/'+day+'/'+name+p+'/お品書き/')
+                            pic_dir=('../pic/'+day+'/'+name+'_'+p+'/お品書き/')
                             if not os.path.exists(pic_dir):
                                 os.makedirs(pic_dir)
                             pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -139,7 +139,7 @@ def get(id_name,name,day,p):
                             osinaflg=True
                         elif(any((j in twt.full_text) for j in sample)):
                         #if(('おしながき' in twt.full_text) or ('お品書き' in twt.full_text)):
-                            pic_dir=('../pic/'+day+'/'+name+p+'/サンプル/')
+                            pic_dir=('../pic/'+day+'/'+name+'_'+p+'/サンプル/')
                             if not os.path.exists(pic_dir):
                                 os.makedirs(pic_dir)
                             pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))
@@ -167,7 +167,7 @@ def get(id_name,name,day,p):
                                 print('not osina')
                             shutil.rmtree(tmp_dir)
 
-                            pic_dir=('../pic/'+day+'/'+name+p)
+                            pic_dir=('../pic/'+day+'/'+name+'_'+p)
                             if not os.path.exists(pic_dir):
                                 os.makedirs(pic_dir)
                             pic_path=os.path.join(pic_dir, os.path.basename(i['media_url']))

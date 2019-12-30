@@ -18,14 +18,15 @@ start=time.time()
 for i in kekka:
     dp=i[3].split('-')
     if(dp[0]==str(DAY)):
-        i.append(getpic.get(i[0],i[3],dp[0],i[3]))
+        i.append(getpic.get(i[2],i[1],dp[0],i[3]))
         cnt+=1
     if(cnt>30):
         stop=time.time()
-        print('please wait:'+str(450-(stop-start)))
-        time.sleep(900-(stop-start))
-        start=time.time()
-        cnt=0
+        if((stop-start)<450):
+            print('please wait:'+str(450-(stop-start)))
+            time.sleep(900-(stop-start))
+            start=time.time()
+            cnt=0
 #kekka[0]=['名前','アカウント','整合性チェック','お品書き','日','場所']
 
 with open('../c97_3.csv', 'w' ,encoding="utf_8_sig") as f:
