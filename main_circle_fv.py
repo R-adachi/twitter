@@ -22,9 +22,3 @@ while(cnt<30):
     time.sleep(30)
     cnt+=1
     print(cnt)
-
-"""
-with open('../c97pre.csv', 'w') as f:
-    writer = csv.writer(f)
-    writer.writerows(kekka)
-"""

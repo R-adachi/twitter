@@ -1,7 +1,6 @@
 import tweepy
 import key_module as getkey
 from pprint import pprint
-import csv
 from datetime import datetime
 import urllib.error
 import urllib.request
@@ -9,6 +8,7 @@ import os
 import copy
 import kobun_touraku_module as touraku
 import time
+import schedule_crawler_module as schedule
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
@@ -26,10 +26,9 @@ f.close()
 stop=0
 
 def check(listname):
-    rtlist=[[]]
     #id=copy.copy(n)
 
-    start=datetime(2019,11,1,(17 - 9),10)
+    start = schedule.touraku_schedule()
 
     newlist = api.list_timeline(myname,slug=listname,count=200,exclude_replies=True,retweeted=False,include_rts=False,tweet_mode='extended')
     #newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
@@ -43,7 +42,6 @@ def check(listname):
                     trtw.insert(0, twt.user.screen_name)
                     #print(twt.user.screen_name)
                     stop=1
-                    rtlist.append(trtw)
                     api.retweet(twt.id)
                 else:
                     stop=0
@@ -51,4 +49,3 @@ def check(listname):
                 pass
             if(stop):
                 time.sleep(30)
-    return(rtlist)

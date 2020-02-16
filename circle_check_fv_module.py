@@ -9,6 +9,7 @@ import os
 import copy
 import kobun_touraku_module as touraku
 import time
+import schedule_crawler_module as schedule
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
@@ -29,7 +30,7 @@ def check(listname):
     rtlist=[[]]
     #id=copy.copy(n)
 
-    start=datetime(2019,11,1,(17 - 9),5)
+    start = schedule.touraku_schedule()
 
     newlist = api.list_timeline(myname,slug=listname,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=True,tweet_mode='extended')
     #newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
@@ -52,4 +53,3 @@ def check(listname):
                 pass
             if(stop):
                 time.sleep(0)
-    return(rtlist)

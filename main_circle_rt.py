@@ -9,8 +9,6 @@ kekka=[[]]
 
 cnt=0
 start=time.time()
-#rt.check('c97pre')
-#start=datetime(2019,11,1,(16 - 9),30)
 kekka=[[]]
 final=[[]]
 cnt=0

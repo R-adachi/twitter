@@ -1,5 +1,5 @@
 from pprint import pprint
-import get_csv_module as getcsv
+import get_csv_module_v2 as getcsv
 import get_list_module as getlist
 import csv
 import get_touraku_inone_module as touraku
@@ -8,6 +8,9 @@ import day_place_module as dp
 import get_ill_list_module as getillist
 import tweepy
 import key_module as getkey
+
+print('C?:'end="")
+c = 'C'+input()
 
 consumer_key = getkey.get_ckey()
 consumer_secret = getkey.get_ckey_s()
@@ -19,7 +22,7 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 cnt=0
-nlist=getcsv.getc97pre()
+nlist=getcsv.get_pre_grade(c)
 kekka_list=[]
 clist=[]
 memlist=[]
