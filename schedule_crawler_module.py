@@ -39,4 +39,4 @@ def comiket_schedule(c):
     schedule = list(map(int,schedule))
     start = datetime.datetime(schedule[0],schedule[1],schedule[2])
     end = datetime.datetime(schedule[0],schedule[3],schedule[4])
-    print(start,end)
+    return(start,end)
