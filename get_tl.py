@@ -20,10 +20,11 @@ pprint(status_list[0])
 
 for i in status_list:
     tl.append([i.text])
+    print(i.created_at)
 
 #pprint(status_list[0].text)
 #pprint(status_list)
 
-with open('../mytl.csv', 'w' ,encoding="utf_8_sig") as f:
-    writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
-    writer.writerows(tl)     # list（1次元配列）の場合
+# with open('../mytl.csv', 'w' ,encoding="utf_8_sig") as f:
+#     writer = csv.writer(f, lineterminator='\n') # 改行コード（\n）を指定しておく
+#     writer.writerows(tl)     # list（1次元配列）の場合
