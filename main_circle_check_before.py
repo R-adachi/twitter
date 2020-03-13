@@ -7,6 +7,8 @@ import circle_check_fv_module as fv
 import circle_check_fv_infvl_module as flfv
 import time
 import make_tlist_module as makelist
+from progressbar import progressbar as pber
+
 
 print('C?:',end="")
 num = int(input())
@@ -33,12 +35,12 @@ for i in rtlist_tmp:
         if(i not in fvlist):
             rtlist.append(i)
 
-# makelist.make(c+'rt',rtlist)
-# makelist.make(c+'fv',fvlist)
+makelist.make(c+'rt',rtlist)
+makelist.make(c+'fv',fvlist)
 
-for i in rtlist:
+for i in pber(rtlist):
     rt.check(i)
-for i in rtlist:
+for i in pber(rtlist):
     fv.check(i)
-for i in fvlist:
+for i in pber(fvlist):
     flfv.check(i)

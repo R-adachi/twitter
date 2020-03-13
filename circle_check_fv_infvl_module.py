@@ -51,7 +51,7 @@ def check(id_name):
             except:
                 pass
             if(stop):
-                time.sleep(30)
+                time.sleep(0)
 
     for p in range(8):
         newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=False,tweet_mode='extended',max_id=nowid)
@@ -74,4 +74,4 @@ def check(id_name):
                 except:
                     pass
                 if(stop):
-                    time.sleep(30)
+                    time.sleep(0)
