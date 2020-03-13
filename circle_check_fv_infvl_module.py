@@ -33,7 +33,7 @@ def check(id_name):
 
     nowid=0
 
-    newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=True,tweet_mode='extended')
+    newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=False,tweet_mode='extended')
     #newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
     for twt in newlist:
         #print(twt.created_at)
@@ -54,7 +54,7 @@ def check(id_name):
                 time.sleep(30)
 
     for p in range(8):
-        newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=True,tweet_mode='extended',max_id=nowid)
+        newlist = api.user_timeline(screen_name=id_name,count=200,exclude_replies=True,favorited=False,retweeted=False,include_rts=False,tweet_mode='extended',max_id=nowid)
         #newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
         for twt in newlist:
             #print(twt.created_at)

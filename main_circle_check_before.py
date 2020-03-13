@@ -4,6 +4,7 @@ import get_list_module as getlist
 import csv
 import circle_check_rt_module as rt
 import circle_check_fv_module as fv
+import circle_check_fv_infvl_module as flfv
 import time
 import make_tlist_module as makelist
 
@@ -32,14 +33,12 @@ for i in rtlist_tmp:
         if(i not in fvlist):
             rtlist.append(i)
 
-makelist.make(c+'rt',rtlist)
-makelist.make(c+'fv',fvlist)
+# makelist.make(c+'rt',rtlist)
+# makelist.make(c+'fv',fvlist)
 
-start=time.time()
-cnt=0
-while(cnt<10):
-    rt.check(c+'rt')
-    fv.check(c+'fv')
-    time.sleep(30)
-    cnt+=1
-    print(cnt)
+for i in rtlist:
+    rt.check(i)
+for i in rtlist:
+    fv.check(i)
+for i in fvlist:
+    flfv.check(i)

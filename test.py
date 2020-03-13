@@ -1,24 +1,29 @@
+import tweepy
+import key_module as getkey
 from pprint import pprint
-import get_csv_module as getcsv
-import get_list_module as getlist
-import csv
-import get_pic_module as getpic
-import time
+from datetime import datetime
+import urllib.error
+import urllib.request
+import os
 import copy
-import make_tlist_module as make_tlist
+import kobun_touraku_module as touraku
+import time
+import schedule_crawler_module as schedule
 
-DAY=4
+consumer_key = getkey.get_ckey()
+consumer_secret = getkey.get_ckey_s()
+access_token = getkey.get_atoken()
+access_token_secret = getkey.get_atoken_s()
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
 
-c='c97'
+api = tweepy.API(auth)
 
-clist=getcsv.get()
+f = open("../myname.txt", "r")
+myname = f.read()
+f.close()
 
-kekka=copy.copy(clist)
-
-cnt=0
-t_idname_list=[]
-
-for j in kekka:
-    t_idname_list.append(j[2])
-
-make_tlist.make(c+'d'+str(DAY),t_idname_list)
+newlist = api.user_timeline(myname,slug='cells_comp',count=1,exclude_replies=True,retweeted=False,include_rts=False,tweet_mode='extended')
+#newlist = api.list_timeline(owner=myname, slug[, since_id][, max_id][, per_page][, page])
+for twt in newlist:
+    print(twt.full_text)
