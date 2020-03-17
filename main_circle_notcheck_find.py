@@ -15,28 +15,7 @@ num = int(input())
 c = 'c' + str(num)
 bc = 'c' + str(num-1)
 
-glist=getcsv.get_pre_grade(bc)
-salist = []
-rtlist = []
-rtlist_tmp = []
-fvlist = []
-nfmlist = []
-for i in glist:
-    if(i[4]==('A' or 'S')):
-        salist.append(i[2])
-    elif(i[4]==('B' or '')):
-        fvlist.append(i[2])
-    elif(i[4]==('C' or 'D')):
-        nfmlist.append(i[2])
 
-rtlist_tmp = list(set(salist + getlist.get('ic')))
-for i in rtlist_tmp:
-    if(i not in nfmlist):
-        if(i not in fvlist):
-            rtlist.append(i)
-
-makelist.make(c+'rt',rtlist)
-makelist.make(c+'fv',fvlist)
 
 for i in pber(rtlist):
     rt.check(i)
